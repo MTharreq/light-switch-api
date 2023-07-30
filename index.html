@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Switch API 💡</title>
+
+    <!-- ENDPOINT FROM BLYNK.API -->
+    <script src="script.js"></script>
+</head>
+<body>
+    
+<script>
+    fetch(status)
+    .then (function (response) {return response.json()})
+    .then(function (obj) {
+        console.log(obj)
+        if(obj == true){
+        fetch(value)
+            .then (function (response) {return response.json()})
+            .then(function (value) {
+                console.log(value)
+                value < 90 ? window.location = (switchOFF) : window.location = (switchON)
+            })
+        }})
+    .catch(function (error) {console.log('Something went wrong')})
+</script>
+</body>
+</html>
